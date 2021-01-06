@@ -1,9 +1,6 @@
 <template>
   <v-app id="inspire">
-    <v-navigation-drawer
-      v-model="drawer"
-      app
-    >
+    <v-navigation-drawer v-model="drawer" app color="transparent">
       <!--  -->
     </v-navigation-drawer>
 
@@ -15,36 +12,31 @@
 
     <v-main>
       <v-container>
-        <Transaksi/>
+        <Transaksi />
+        
       </v-container>
     </v-main>
 
     <v-footer app padless color="transparent">
-    <v-col
-      class="text-center"
-      cols="12"
-    >
-      {{ new Date().getFullYear() }} — <strong>Jaticempaka-11</strong>
-    </v-col>
-  </v-footer>
+      <v-col class="text-center" cols="12">
+        {{ new Date().getFullYear() }} — <strong>Jaticempaka-11</strong>
+      </v-col>
+    </v-footer>
   </v-app>
 </template>
 
-
 <script>
-import Transaksi from './components/DataTransaksi.vue';
-
-
+import Transaksi from "./views/Transaksi";
 
 export default {
   name: "App",
 
   components: {
-    Transaksi,
+    Transaksi
   },
 
   data: () => ({
     drawer: null
-  }),
+  })
 };
 </script>

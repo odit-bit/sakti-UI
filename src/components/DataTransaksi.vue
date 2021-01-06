@@ -1,32 +1,29 @@
 <template>
-
   <v-container>
-    <v-app>
-      <v-card>
+    <v-card :shaped="true">
         <v-card-title>
           Riwayat Transaksi
         </v-card-title>
         <v-data-table
-            :headers="headers"
-            :items="transaksi"
-            :items-per-page="10"
-            sort-by="Tanggal"
-            class="elevation-10"
-            loading-text="sedang memuat..."
-          >
-            <!-- <template v-slot:item.Tanggal="{ item }">
+          :headers="headers"
+          :items="transaksi"
+          :items-per-page="10"
+          sort-by="Tanggal"
+          class="elevation-10"
+          loading-text="sedang memuat..."
+        >
+          <!-- <template v-slot:item.Tanggal="{ item }">
               <v-chip color="#3bd6c6" dark outlined>
                   {{ item.Tanggal }}
               </v-chip>
             </template> -->
-            <template v-slot:item.JenisTransaksi="{ item }">
-              <v-chip :color="getColor(item.JenisTransaksi)" dark >
-                  {{ item.JenisTransaksi }}
-              </v-chip>
-            </template>
+          <template v-slot:item.JenisTransaksi="{ item }">
+            <v-chip :color="getColor(item.JenisTransaksi)" dark>
+              {{ item.JenisTransaksi }}
+            </v-chip>
+          </template>
         </v-data-table>
       </v-card>
-    </v-app>
   </v-container>
 </template>
 
@@ -48,18 +45,18 @@ export default {
       { text: "Bulan", value: "Tanggal" },
       { text: "Jumlah", value: "Amount", sortable: false, groupable: false },
       { text: "Tipe", value: "JenisTransaksi" },
-      { text: "Rinci", value: "Description", groupable: false },
+      { text: "Rinci", value: "Description", groupable: false }
     ],
-    transaksi: [],
+    transaksi: []
   }),
 
   methods: {
-      getColor (JenisTransaksi) {
-        if (JenisTransaksi == "debit") return 'red'
-        else if (JenisTransaksi == "kredit") return 'green'
-      },
-  },   
-  
+    getColor(JenisTransaksi) {
+      if (JenisTransaksi == "debit") return "red";
+      else if (JenisTransaksi == "kredit") return "green";
+    }
+  },
+
   mounted() {
     axios
       .get(process.env.VUE_APP_API)
@@ -73,20 +70,18 @@ export default {
           element.Tanggal = moment(element.Tanggal).format("MMMM");
 
           if (element.JenisTransaksi == 0) {
-            element.JenisTransaksi = "kredit"
+            element.JenisTransaksi = "kredit";
           }
 
           if (element.JenisTransaksi == 1) {
-            element.JenisTransaksi = "debit"
+            element.JenisTransaksi = "debit";
           }
         });
         this.transaksi = result.data;
-        
       })
       .catch(err => {
         alert(err);
       });
-  },
-  
+  }
 };
 </script>
