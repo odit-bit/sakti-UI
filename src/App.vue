@@ -13,7 +13,6 @@
     <v-main>
       <v-container>
         <Transaksi />
-        
       </v-container>
     </v-main>
 
