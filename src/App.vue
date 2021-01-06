@@ -1,56 +1,50 @@
 <template>
-  <v-app>
-    <v-app-bar app color="teal lighten-3" dark>
-      <div class="d-flex align-center">
-        <!-- <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
+  <v-app id="inspire">
+    <v-navigation-drawer
+      v-model="drawer"
+      app
+    >
+      <!--  -->
+    </v-navigation-drawer>
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        /> -->
-      </div>
-       <v-toolbar-title>JATICEMPAKA-11</v-toolbar-title>
-      <v-spacer></v-spacer>
+    <v-app-bar app color="transparent">
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-      <!-- <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn> -->
+      <v-toolbar-title>Application</v-toolbar-title>
     </v-app-bar>
 
     <v-main>
-      <HelloWorld />
+      <v-container>
+        <Transaksi/>
+      </v-container>
     </v-main>
+
+    <v-footer app padless color="transparent">
+    <v-col
+      class="text-center"
+      cols="12"
+    >
+      {{ new Date().getFullYear() }} — <strong>Jaticempaka-11</strong>
+    </v-col>
+  </v-footer>
   </v-app>
 </template>
 
+
 <script>
-import HelloWorld from "./components/HelloWorld";
+import Transaksi from './components/DataTransaksi.vue';
+
+
 
 export default {
   name: "App",
 
   components: {
-    HelloWorld
+    Transaksi,
   },
 
   data: () => ({
-    //
-  })
+    drawer: null
+  }),
 };
 </script>
