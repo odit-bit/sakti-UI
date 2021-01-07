@@ -1,8 +1,8 @@
 <template>
-  <v-app>
+  <div>
     <Graph value="bokep" />
     <DataTransaksi />
-  </v-app>
+  </div>
   <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
 </template>
 

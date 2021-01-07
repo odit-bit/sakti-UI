@@ -1,10 +1,10 @@
 <template>
   <v-app id="inspire">
-    <v-navigation-drawer v-model="drawer" app color="transparent">
+    <v-navigation-drawer v-model="drawer" app>
       <!--  -->
     </v-navigation-drawer>
 
-    <v-app-bar app color="transparent">
+    <v-app-bar app color="teal">
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
       <v-toolbar-title>Application</v-toolbar-title>
@@ -16,7 +16,7 @@
       </v-container>
     </v-main>
 
-    <v-footer app padless color="transparent">
+    <v-footer app padless color="teal">
       <v-col class="text-center" cols="12">
         {{ new Date().getFullYear() }} — <strong>Jaticempaka-11</strong>
       </v-col>
