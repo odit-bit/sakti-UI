@@ -2,9 +2,9 @@
 **/.firebase
 .firebaserc
 firebase.json
-**/public
 
-public
+
+URL_list.txt
 .DS_Store
 node_modules
 /dist

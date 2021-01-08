@@ -1,30 +1,19 @@
 <template>
-  <v-container>
-    <v-card :shaped="true">
-      <v-card-title>
-        Riwayat Transaksi
-      </v-card-title>
-      <v-data-table
+<v-data-table
         :headers="headers"
         :items="transaksi"
         :items-per-page="10"
         sort-by="Tanggal"
-        class="elevation-10"
-        loading-text="sedang memuat..."
+        class="elevation-0"
+        loading="true"
+        loading-text="Memuat...."
       >
-        <!-- <template v-slot:item.Tanggal="{ item }">
-              <v-chip color="#3bd6c6" dark outlined>
-                  {{ item.Tanggal }}
-              </v-chip>
-            </template> -->
         <template v-slot:item.JenisTransaksi="{ item }">
           <v-chip :color="getColor(item.JenisTransaksi)" dark>
             {{ item.JenisTransaksi }}
           </v-chip>
         </template>
       </v-data-table>
-    </v-card>
-  </v-container>
 </template>
 
 <script>
@@ -67,7 +56,7 @@ export default {
             style: "currency",
             currency: "IDR"
           }).format(element.Amount);
-          element.Tanggal = moment(element.Tanggal).format("MMMM");
+          element.Tanggal = moment(element.Tanggal).format("MMM yy");
 
           if (element.JenisTransaksi == 0) {
             element.JenisTransaksi = "kredit";
@@ -78,6 +67,7 @@ export default {
           }
         });
         this.transaksi = result.data;
+        this.loading = false;
       })
       .catch(err => {
         alert(err);
