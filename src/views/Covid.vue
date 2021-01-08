@@ -1,6 +1,6 @@
 <template>
     <v-container>
-        <v-card class="mt-4 mx-auto text-center" :shaped="true">
+        <v-card class="mt-4 mx-auto text-center " :shaped="true" >
             <v-card-text >
                 Angka Komulatif Kel.Jaticempaka
             </v-card-text>
@@ -11,12 +11,12 @@
                 <v-col v-for="data in dataCovid" :key="data" >
                     <v-card class="elevation-0 grey lighten-5" >
                         <v-card-subtitle class="black--text">
-                            {{data.status}}
+                           <p>{{data.status}}</p> 
                         </v-card-subtitle>
                         <v-spacer></v-spacer>
-                        <v-card-text class="font-weight-black">
+                        <v-card-text class="">
                             <!-- <v-chip color="teal" dark outlined> -->
-                                {{data.jumlah}}
+                              <h1 class="font-weight-bold grey--text">{{data.jumlah}}</h1>  
                             <!-- </v-chip> -->
                         </v-card-text>
                     </v-card>

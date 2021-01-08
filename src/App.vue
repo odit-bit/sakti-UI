@@ -51,9 +51,9 @@
         <router-view></router-view>
     </v-main>
 
-    <v-footer padless class="white" elevation="0" >
+    <v-footer app padless class="white" elevation="0" >
       <v-col class="text-center" cols="12">
-        {{ new Date().getFullYear() }} — <strong>Jaticempaka-11</strong>
+        {{ new Date().getFullYear() }} — Media Informasi <strong>Binalindung Rw.11</strong>
       </v-col>
     </v-footer>
   </v-app>
